@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Ports (go.js)</title>
+    <meta name="description" content="Nodes with varying lists of ports on each of four sides." />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Copyright 1998-2020 by Northwoods Software Corporation. -->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Create two equal columns that floats next to each other */
+        .column {
+            float: left;
+            width: 50%;
+            padding: 10px;
+            height: 700px;
+            /* Should be removed. Only for demonstration */
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .form-control {
+            width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        #myDiagramDiv {
+            border: 1px solid black;
+        }
+    </style>
+
+    <script src="https://unpkg.com/gojs/release/go-debug.js"></script>
+    <script src="./index.js"></script>
+
+</head>
+
+<body onload="init()">
+    <div id="row">
+        <div id="myDiagramDiv" class="column"></div>
+        <div id="action-panel" class="column">
+            <h2>Add New Node</h2>
+            <label for="select-box">Node Type:</label>
+            <br>
+            <select id="select-box" class="form-control">
+                <option value="1">Unit One</option>
+                <option value="2">Unit Two</option>
+                <option value="3">Unit Three</option>
+                <option value="4">Unit Four</option>
+            </select>
+            <br>
+            <button class="form-control" onclick="addNode()">Add Node</button>
+        </div>
+    </div>
+</body>
+
+</html>
