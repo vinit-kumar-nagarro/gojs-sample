@@ -231,7 +231,7 @@ function init() {
                 function (o) { return o.diagram.commandHandler.canRedo(); })
         );
 
-    myDiagram.addRow = function (x, y) {
+    myDiagram.addRow = function (x, y, name) {
         myDiagram.add(
             $(go.Part,
                 {
@@ -245,6 +245,9 @@ function init() {
                         minSize: new go.Size(720, 200),
                         cursor: "pointer",
                     }),
+                $(go.TextBlock,
+                    { margin: 5, text: name }
+                )
             )
         );
     }
@@ -347,7 +350,7 @@ function load() {
     count = parseInt(count);
 
     for (var i = 0; i < count; i++) {
-        myDiagram.addRow(0, i * 200);
+        myDiagram.addRow(0, i * 200, "Group-" + (i + 1));
     }
     myDiagram.model = new go.GraphLinksModel([], []);
     myDiagram.model.copiesArrays = true;
