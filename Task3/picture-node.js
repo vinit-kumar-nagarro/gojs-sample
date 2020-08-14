@@ -386,9 +386,9 @@ function addNode() {
         return;
     }
     count = parseInt(count);
-    var categoryName = document.getElementById("select-box").value;
+    var key = Number(document.getElementById("select-box").value);
     var nodes = JSON.parse(myDiagram.model.toJson());
-    var category = nodeDataArray.find(it => it.name == categoryName);
+    var category = nodeDataArray.find(it => it.key == key);
     var existing = nodes.nodeDataArray.filter(it => it.categoryId == category.key).length;
 
     myDiagram.startTransaction("add new node");
@@ -399,7 +399,7 @@ function addNode() {
             "name": category.name + '_' + newKey,
             "loc": (20 * i + 100) + ' ' + (20 * i + 100),
             "categoryId": category.key,
-            "imageSrc": "../images/" + categoryName + '.png',
+            "imageSrc": category.imageSrc,
             "leftArray": category.leftArray,
             "topArray": category.topArray,
             "bottomArray": category.bottomArray,
@@ -413,6 +413,7 @@ function addNode() {
 var nodeDataArray = [
     {
         "key": 1, "name": "Unit One", "loc": "101 204",
+        "imageSrc": "../images/Unit One.png",
         "leftArray": [{ "portColor": "#fae3d7", "portId": "left0" }],
         "topArray": [{ "portColor": "#d6effc", "portId": "top0" }],
         "bottomArray": [{ "portColor": "#ebe3fc", "portId": "bottom0" }],
@@ -420,6 +421,7 @@ var nodeDataArray = [
     },
     {
         "key": 2, "name": "Unit Two", "loc": "320 152",
+        "imageSrc": "../images/Unit Two.png",
         "leftArray": [{ "portColor": "#6cafdb", "portId": "left0" }, { "portColor": "#66d6d1", "portId": "left1" }, { "portColor": "#fae3d7", "portId": "left2" }],
         "topArray": [{ "portColor": "#d6effc", "portId": "top0" }],
         "bottomArray": [{ "portColor": "#eaeef8", "portId": "bottom0" }, { "portColor": "#eaeef8", "portId": "bottom1" }, { "portColor": "#6cafdb", "portId": "bottom2" }],
@@ -427,6 +429,7 @@ var nodeDataArray = [
     },
     {
         "key": 3, "name": "Unit Three", "loc": "384 319",
+        "imageSrc": "../images/Unit Three.png",
         "leftArray": [{ "portColor": "#66d6d1", "portId": "left0" }, { "portColor": "#fadfe5", "portId": "left1" }, { "portColor": "#6cafdb", "portId": "left2" }],
         "topArray": [{ "portColor": "#66d6d1", "portId": "top0" }],
         "bottomArray": [{ "portColor": "#6cafdb", "portId": "bottom0" }],
@@ -434,6 +437,7 @@ var nodeDataArray = [
     },
     {
         "key": 4, "name": "Unit Four", "loc": "138 351",
+        "imageSrc": "../images/Unit Four.png",
         "leftArray": [{ "portColor": "#fae3d7", "portId": "left0" }],
         "topArray": [{ "portColor": "#6cafdb", "portId": "top0" }],
         "bottomArray": [{ "portColor": "#6cafdb", "portId": "bottom0" }],
